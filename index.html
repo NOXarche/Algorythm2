@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoRhythm - Sign In & Sign Up</title>
+    <link rel="stylesheet" href="styles-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="cursor-follower"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <canvas id="auth-3d-canvas"></canvas>
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="auth-header">
+        <div class="header-content">
+            <a href="#" class="logo-container">
+                <div class="logo-icon">
+                    <div class="logo-cube"></div>
+                </div>
+                <span class="logo-text">AlgoRhythm</span>
+            </a>
+            <a href="mainpage.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Floating Code Animation -->
+    <div class="floating-code">
+        <div class="code-snippet">function login() { return true; }</div>
+        <div class="code-snippet">const user = await auth.signIn();</div>
+        <div class="code-snippet">if (authenticated) navigate('/dashboard');</div>
+        <div class="code-snippet">dispatch({ type: 'LOGIN_SUCCESS' });</div>
+        <div class="code-snippet">localStorage.setItem('token', jwt);</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container" id="container">
+        <!-- Sign Up Form -->
+        <div class="form-box register">
+            <form id="registerForm">
+                <h1>Create Account</h1>
+                <p>Join AlgoRhythm and start your coding journey</p>
+                
+                <div class="input-box">
+                    <input type="text" id="registerName" placeholder="Full Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <div class="input-box">
+                    <input type="email" id="registerEmail" placeholder="Email Address" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="input-box">
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="input-box">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <span class="btn-text">Sign Up</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+                
+                <div class="social-icons">
+                    <a href="#" class="google-btn"><i class="fab fa-google"></i></a>
+                    <a href="#" class="github-btn"><i class="fab fa-github"></i></a>
+                    <a href="#" class="facebook-btn"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="form-box login">
+            <form id="loginForm">
+                <h1>Welcome Back</h1>
+                <p>Sign in to continue your coding journey</p>
+                
+                <div class="input-box">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="input-box">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="forgot-link">
+                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <span class="btn-text">Sign In</span>
+                    <div class="btn-loader">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+                
+                <div class="social-icons">
+                    <a href="#" class="google-btn"><i class="fab fa-google"></i></a>
+                    <a href="#" class="github-btn"><i class="fab fa-github"></i></a>
+                    <a href="#" class="facebook-btn"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Toggle Panel -->
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Enter your personal details to use all of AlgoRhythm features</p>
+                <button class="btn" id="loginBtn">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Friend!</h1>
+                <p>Register with your personal details to use all of AlgoRhythm features</p>
+                <button class="btn" id="registerBtn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Visualizer -->
+    <div class="music-visualizer">
+        <div class="visualizer-bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="visualizer-label">
+            <i class="fas fa-music"></i>
+            <span>Auth Vibes</span>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Success!</h3>
+            <p id="successMessage">Welcome to AlgoRhythm!</p>
+            <button class="btn" onclick="closeSuccessModal()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script-merged.js"></script>
+</body>
+</html>
